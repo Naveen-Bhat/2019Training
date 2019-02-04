@@ -1,0 +1,19 @@
+﻿@model Employee
+
+<form method="post" action="@ViewBag.SubmitUrl">
+    @Html.HiddenFor(m => m.Id)
+
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>@Html.EditorFor(m => m.Name)</td>
+        </tr>
+        <tr>
+            <td>Designation</td>
+            <td>@Html.EditorFor(m => m.Desgination)</td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit" />
+
+</form>

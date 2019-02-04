@@ -1,0 +1,21 @@
+﻿@model List<WebApplication1.Models.MarksModel>
+
+@foreach (var student in Model)
+{
+    <br />
+    <span class="test">@student.StudentName : </span> @student.Mark
+}
+
+<br /><br />
+<span id="date"></span>
+
+@section scripts{
+    
+    <script type="text/javascript">
+
+        var dateSpan = $("#date");
+        dateSpan.text(new Date());
+        dateSpan.css("color", "red");
+
+    </script>
+}

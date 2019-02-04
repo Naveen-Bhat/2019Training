@@ -1,0 +1,5 @@
+﻿@model Employee
+
+@{ ViewBag.SubmitUrl = Url.Action("Add", "Employee"); }
+
+@await Html.PartialAsync("_EmployeeForm", Model)

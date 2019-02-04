@@ -1,0 +1,19 @@
+﻿<html>
+<head>
+    @RenderSection("styles", false)
+</head>
+<body>
+
+    @await Html.PartialAsync("_Header")
+
+    @await Html.PartialAsync("_Menu")
+
+    @RenderBody()
+
+    @await Html.PartialAsync("_Footer")
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    @RenderSection("scripts", false)
+
+</body>
+</html>

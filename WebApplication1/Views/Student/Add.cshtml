@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.Student
+
+<form action="@Url.Action("Add", "Student")" method="post">
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Age)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Age)
+                @Html.ValidationMessageFor(m => m.Age)
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Add Student" />
+
+</form>
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/add.js"></script>
+}
