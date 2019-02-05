@@ -17,6 +17,20 @@ namespace WebApplication1.Controllers
             return View(employees);
         }
 
+        public IActionResult Delete(int employeeId)
+        {
+            var emp = employees.FirstOrDefault(x => x.Id == employeeId);
+
+            if (emp == null)
+            {
+                return Content("Invalid Id");
+            }
+
+            employees.Remove(emp);
+
+            return Json(new { redirectUrl = Url.Action("Index", "Employee") });
+        }
+
         [HttpGet]
         public IActionResult Add()
         {

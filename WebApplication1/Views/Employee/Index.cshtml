@@ -17,9 +17,33 @@
                 <td>@emp.Name</td>
                 <td>@emp.Desgination</td>
                 <td><a href="@Url.Action("Edit", "Employee", new { employeeId = emp.Id })">Edit</a></td>
+                <td><a href="#" class="delete" data-employeeid="@emp.Id">Delete</a></td>
             </tr>
         }
     </tbody>
 </table>
 
 <a href="@Url.Action("Add", "Employee")">Add New Record</a>
+
+@section scripts{ 
+    <script>
+
+        $(document).ready(() => {
+
+            $(".delete").click((e) => {
+                if (confirm("Are you sure to delete?")) {
+                    var url = "@Url.Action("Delete", "Employee")" + "?employeeId=" + $(e.currentTarget).data("employeeid");
+                    $.get(url, function (response) {
+                        if (response.redirectUrl) {
+                            location.href = response.redirectUrl;
+                        } else {
+                            alert(response);
+                        }
+                    });
+                }
+            });
+
+        });
+
+    </script>
+}
